@@ -50,25 +50,27 @@ def main(argv):
     password = getpass.getpass()
 
 # comment this line if you want to use privoxy + tor:
-   # with Browser() as browser:
+    with Browser() as browser:
 #uncomment this section if you want to use privoxy + tor:
-    proxyIP = '127.0.0.1'
-    proxyPort = 8118
+    # proxyIP = '127.0.0.1'
+    # proxyPort = 8118
 
-    proxy_settings = {'network.proxy.type': 1,
-            'network.proxy.http': proxyIP,
-           'network.proxy.http_port': proxyPort,
-           'network.proxy.ssl': proxyIP,
-           'network.proxy.ssl_port':proxyPort,
-           'network.proxy.socks': proxyIP,
-           'network.proxy.socks_port':proxyPort,
-           'network.proxy.ftp': proxyIP,
-           'network.proxy.ftp_port':proxyPort
-           }
+    # proxy_settings = {'network.proxy.type': 1,
+    #         'network.proxy.http': proxyIP,
+    #        'network.proxy.http_port': proxyPort,
+    #        'network.proxy.ssl': proxyIP,
+    #        'network.proxy.ssl_port':proxyPort,
+    #        'network.proxy.socks': proxyIP,
+    #        'network.proxy.socks_port':proxyPort,
+    #        'network.proxy.ftp': proxyIP,
+    #        'network.proxy.ftp_port':proxyPort
+    #        }
 
-    with Browser("firefox",profile_preferences=proxy_settings) as browser:
-        browser.visit("https://twitter.com/")
-        print username 
+    #with webdriver.Firefox() as browser:
+        browser.visit("http://twitter.com/")
+        #wait for browser to load
+
+        #print username 
         browser.execute_script("$('#front-container #signin-email').val('%s');"  % (username))
         browser.execute_script("$('#front-container #signin-password').val('%s');" % (password))
         browser.find_by_css("button[type='submit'].submit.btn.primary-btn").click()
