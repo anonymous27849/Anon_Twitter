@@ -11,7 +11,7 @@ def main(argv):
     date = str(d.year) + '' + str(d.month) + '' + str(d.day) + '' + str(d.hour) + '' + str(d.minute) + '' + str(d.second)
     output = "./twitterUrlList_"+date+".txt"
     input_f = None
-    url = "https://twitter.com/HA_alshami03"
+    url = "https://twitter.com/ZaidZamanHamid"
     data = None
 
     try:
